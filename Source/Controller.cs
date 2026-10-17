@@ -19,6 +19,7 @@ namespace AnimalTab {
 #endif
             Harmony harmony = new( "Fluffy.AnimalTab" );
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+            Log.Message("[Animal Tab] Gatherable-status fix loaded (milk/wool null-reference guard).");
 
         }
 

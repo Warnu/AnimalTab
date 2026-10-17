@@ -1,65 +1,47 @@
-Adds extra functionality to the Animals tab
+# Animal Tab — Unofficial Update
 
-![Important](https://headers.karel-kroeze.nl/title/Important.png)  
+Unofficial maintenance fork of [Animal Tab by Fluffy](https://github.com/fluffy-mods/AnimalTab), maintained by **Noslon** ([Warnu on GitHub](https://github.com/Warnu)). This is a full replacement, not an add-on, and is not endorsed by the original author.
 
-Does not require a new save game.
-Can safely be enabled/disabled in ongoing saves.
+## Status and scope
 
-![Notes](https://headers.karel-kroeze.nl/title/Notes.png)  
+Fork release version: **1.7.0**. Supported game version: **RimWorld 1.7**. The internal assembly identity remains `AnimalTab, Version=8.0.0.0` to preserve the original binary identity; it is separate from the fork's release version.
 
-First released back in A12 (or was it 11?) this mod vastly improved the vanilla animals tab. Evidently, Tynan agreed and the mod is now (mostly) part of the vanilla game. I still feel this mod looks better, and adds enough extra functionality (sorting, filters, renaming) to make it a worthwhile replacement.
+**Experimental release candidate for RimWorld 1.7.** The code change was tested locally on 1.7.4981 rev136: the Animals tab scrolled normally and displayed milk percentages. That test replaced the original mod's DLL. The new standalone package ID and third-party integrations still require an in-game test before public Workshop release.
 
-![Known Issues](https://headers.karel-kroeze.nl/title/Known%20Issues.png)  
+The build targets .NET Framework 4.7.2 using RimWorld 1.6.4871 reference assemblies. Only 1.7 is declared in the metadata; this is not a blanket compatibility claim. Development of this release is on branch `1.7`, based on the original mod's `1.5` branch.
 
-Domestication (wildness) and the loss over training over time is not visible in the tab. I plan on adding some kind of indicator to show this, but don't know when I'll have time. Note that this information is also not shown in the vanilla animals tab.
-This mod uses a relatively thin 'wrapper' around the vanilla animal tab to implement filtering. This wrapper cannot co-exist with other mods that depend on overriding the vanilla animal tab, e.g. ~~~Better Pawn Control~~~.
-**Voult, the awesome person behind Better Pawn Control is working on compatibility, the two mods should now work together fine**.
+The patch contains reflected null-reference failures in milk/wool status getters, leaving only the affected cell blank. It identifies the animal in one warning per component and retries after one second. Healthy values and the game's eligibility rules are preserved. Other exception types still propagate.
 
-![Features](https://headers.karel-kroeze.nl/title/Features.png)  
+This is table error handling, **not a demonstrated repair of the underlying invalid map state**. A RimWorld update also occurred between the original failure and the successful test, so that test cannot establish that the patch alone removed the original cause.
 
-- Gender and lifestage icons on the animals tab. Easily keep track of your chickenfarm!
-- Butchery designation right from the animals tab.
-- Sort by name, gender, lifestage/age, and bodysize (meat).
-- Filter by race, and a variety of attributes.
-- Rename (named) pets. Don't like the name Buttercup for your Warg? Change it!
-- Mass assign masters, or assign all to bonded masters.
+## Install
 
-![Think you found a bug?](https://headers.karel-kroeze.nl/title/Think%20you%20found%20a%20bug%3F.png)  
-Please read [this guide](http://steamcommunity.com/sharedfiles/filedetails/?id=725234314) before creating a bug report,
-and then create a bug report [here](https://github.com/fluffy-mods/AnimalTab/issues)
+1. Install the current [Harmony mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077) for your game version.
+2. Extract the release ZIP's `AnimalTab-Unofficial` folder into RimWorld's local `Mods` directory.
+3. Disable original **Animal Tab**, and enable this fork after Harmony. Never enable both.
+4. Restart and test on a copy of your save.
 
-![Older versions](https://headers.karel-kroeze.nl/title/Older%20versions.png)  
-All current and past versions of this mod can be downloaded from [GitHub](https://github.com/fluffy-mods/AnimalTab/releases).
+Package ID: `warnu.animaltab.unofficial`. A save may report the changed mod list. Add-ons that check or require `Fluffy.AnimalTab` may need a compatibility update; unchanged C# class names do not make package-ID checks succeed. Broad add-on compatibility has not been established.
 
-![License](https://headers.karel-kroeze.nl/title/License.png)  
-All original code in this mod is licensed under the [MIT license](https://opensource.org/licenses/MIT). Do what you want, but give me credit.
-All original content (e.g. text, imagery, sounds) in this mod is licensed under the [CC-BY-SA 4.0 license](http://creativecommons.org/licenses/by-sa/4.0/).
+## Build and test
 
-Parts of the code in this mod, and some of the content may be licensed by their original authors. If this is the case, the original author & license will either be given in the source code, or be in a LICENSE file next to the content. Please do not decompile my mods, but use the original source code available on [GitHub](https://github.com/fluffy-mods/AnimalTab/), so license information in the source code is preserved.
+Install the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) and PowerShell 7. Run from the repository root:
 
-Parts of this mod were created by, or derived from works created by;
-- SimpleIcon: icons ([CC0](https://simpleicons.org/))
-- Dave Gandy/FontAwesome: icons ([BY](http://fontawesome.io/))
-- macrovector: preview animal art ([BY-NC](https://www.freepik.com/macrovector))
-- Freepik: various icons ([BY-NC](http://www.flaticon.com/authors/freepik))
+```powershell
+./build.ps1
+./package.ps1
+```
 
+The first build restores public NuGet dependencies. It requires no installed game, Steam account, machine-specific path, or `mod update` utility. GitHub Actions runs the same steps on Windows.
 
-![Are you enjoying my mods?](https://headers.karel-kroeze.nl/title/Are%20you%20enjoying%20my%20mods%3F.png)  
-Normally, this is where I ask you to show you appreciation by buying me a coffee.
+The regression harness tests the compiled DLL: healthy/inactive/missing components, the reflected null-reference failure, repeated redraws, one-second retries, recovery, independent components, clock rollover, and preservation of other exceptions. These tests do not boot RimWorld or establish mod-list compatibility.
 
-These are not normal times. Ukraine is being invaded by Russia, at the whim of a ruthless dictator. Innocent people are loosing their lives, and fighting for their continued freedom.
+The ZIP and staging folder appear under `dist/`. Packaging uses an explicit allowlist: assets, metadata, AnimalTab.dll, documentation, licenses, and checksums. No source tools, debug files, Harmony DLL, old update manifest, or Workshop ID is uploaded.
 
-This is not a matter of politics. This is not a debate. Putins' bloody campaign in Ukraine is illegal, and he will stop at nothing to get what he wants, when he wants it, no matter the cost. The Russian army is invading a country without provocation, bombing civilians and murdering innocents.
+## Publishing and credits
 
-The prospect of waking up to see my country at war is alien to me, as it must have seemed to most Ukrainians. I can do little to influence the outcome of current affairs, but I will do whatever I can.
+See [docs/PUBLISHING.md](docs/PUBLISHING.md), [Workshop description](docs/WORKSHOP-DESCRIPTION.txt), and [CHANGELOG.md](CHANGELOG.md).
 
-**I ask you to join me in supporting the people of Ukraine**
+Original code/documentation: Fluffy and contributors, MIT. Original content: generally CC BY-SA 4.0, with third-party exceptions including BY-NC artwork/icons. Preserve [LICENSE](LICENSE) and [CREDITS.md](CREDITS.md). The original README is retained in [docs/UPSTREAM-README.md](docs/UPSTREAM-README.md), and the Git history is preserved.
 
-![How can you help?](https://headers.karel-kroeze.nl/title/How%20can%20you%20help%3F.png)  
-If you can, donate to the various charities providing humanitarian aid. 
-
-You can also help out in other ways, from reaching out to your elected representatives to helping fact-check social media. 
-
-If you don't know where to donate, or how to start helping, Global Citizen maintains a list of charitable organizations active in the region and other ways in which you can help. 
-
-<https://www.globalcitizen.org/en/content/ways-to-help-ukraine-conflict/>
+Report fork issues at [Warnu/AnimalTab](https://github.com/Warnu/AnimalTab/issues) with your game version, mod list, and log from the failing session.

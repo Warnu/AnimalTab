@@ -51,7 +51,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-*.txt
+About/PublishedFileId.txt
+Assemblies/
+dist/
+*.user
 Source/BetterAnimalsTab/obj/Debug/BetterAnimalsTab.pdb
 *.cache
 *.pxd

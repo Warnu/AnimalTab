@@ -3,16 +3,22 @@
         <AssemblyName>AnimalTab</AssemblyName>
         <TargetFramework>net472</TargetFramework>
         <AssemblyTitle>AnimalTab</AssemblyTitle>
+        <AssemblyVersion>8.0.0.0</AssemblyVersion>
+        <Version>1.7.0</Version>
+        <FileVersion>1.7.0.0</FileVersion>
+        <InformationalVersion>1.7.0-unofficial</InformationalVersion>
         <Product>AnimalTab</Product>
         <Copyright>Copyright © 2015-2021</Copyright>
         <OutputPath>..\Assemblies\</OutputPath>
         <LangVersion>9</LangVersion>
         <DebugType>portable</DebugType>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <PostBuildEvent>mod update</PostBuildEvent>
+        <Deterministic>true</Deterministic>
+        <PathMap>$(MSBuildProjectDirectory)=/AnimalTab/Source</PathMap>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5.4034-beta" />
-        <PackageReference Include="Lib.Harmony" Version="2.3.1.1" ExcludeAssets="runtime" />
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4871" PrivateAssets="all" />
+        <PackageReference Include="Lib.Harmony" Version="2.2.2" ExcludeAssets="runtime" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
     </ItemGroup>
 </Project>

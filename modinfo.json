@@ -1,22 +1,22 @@
 {
-    "name": "Animal Tab",
+    "name": "Animal Tab — Unofficial Update",
     "sourceDir": ".",
-    "targetDir": "AnimalTab",
-    "url": "https://github.com/fluffy-mods/AnimalTab",
+    "targetDir": "AnimalTab-Unofficial",
+    "url": "https://github.com/Warnu/AnimalTab",
     "version": {
-        "major": 8,
-        "minor": 1,
-        "build": 365
+        "major": 1,
+        "minor": 7,
+        "build": 0,
+        "revision": 0
     },
     "author": {
-        "name": "Fluffy",
-        "url": "https://github.com/fluffy-mods/",
-        "email": "fluffy.l2032@gmail.com"
+        "name": "Noslon (unofficial maintenance); Fluffy (original)",
+        "url": "https://github.com/Warnu/AnimalTab"
     },
     "git": {
-        "owner": "fluffy-mods",
+        "owner": "Warnu",
         "repo": "AnimalTab",
-        "url": "https://github.com/fluffy-mods/AnimalTab"
+        "url": "https://github.com/Warnu/AnimalTab"
     },
     "attributions": [
         {

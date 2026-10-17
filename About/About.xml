@@ -1,35 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-    <name>Animal Tab</name>
-    <author>Fluffy</author>
-    <packageId>Fluffy.AnimalTab</packageId>
-    <description>Adds extra functionality to the Animals tab
+  <name>Animal Tab — Unofficial Update</name>
+  <author>Fluffy (original); Noslon (unofficial maintenance)</author>
+  <packageId>warnu.animaltab.unofficial</packageId>
+  <modVersion>1.7.0</modVersion>
+  <supportedVersions><li>1.7</li></supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter><li>brrainz.harmony</li></loadAfter>
+  <incompatibleWith><li>fluffy.animaltab</li></incompatibleWith>
+  <url>https://github.com/Warnu/AnimalTab</url>
+  <description>Unofficial maintenance fork of Animal Tab by Fluffy, maintained by Noslon (Warnu on GitHub).
 
-&lt;size=28&gt;Important&lt;/size&gt;
+Enhanced animal information, sorting, filtering, and handler controls.
 
-Does not require a new save game.
-Can safely be enabled/disabled in ongoing saves.
+This update prevents null-reference failures in milk/wool status checks from interrupting the entire table. An affected cell stays blank, one diagnostic warning identifies the animal, and the status is retried after one second. Normal production rules are unchanged.
 
-&lt;size=28&gt;Notes&lt;/size&gt;
+Enable this fork INSTEAD OF the original Animal Tab. Never enable both. Requires Harmony.
 
-First released back in A12 (or was it 11?) this mod vastly improved the vanilla animals tab. Evidently, Tynan agreed and the mod is now (mostly) part of the vanilla game. I still feel this mod looks better, and adds enough extra functionality (sorting, filters, renaming) to make it a worthwhile replacement.
+Experimental RimWorld 1.7 release candidate. The code change was tested locally on 1.7.4981 rev136; the standalone package and third-party integrations still need in-game testing. This does not claim to repair the underlying invalid map state. Add-ons that explicitly require Fluffy.AnimalTab may need compatibility updates for this fork's distinct package ID.
 
-&lt;size=28&gt;Known Issues&lt;/size&gt;
+Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=712141500
+Original source: https://github.com/fluffy-mods/AnimalTab
+Fork source and issues: https://github.com/Warnu/AnimalTab
 
-Domestication (wildness) and the loss over training over time is not visible in the tab. I plan on adding some kind of indicator to show this, but don't know when I'll have time. Note that this information is also not shown in the vanilla animals tab.
-This mod uses a relatively thin 'wrapper' around the vanilla animal tab to implement filtering. This wrapper cannot co-exist with other mods that depend on overriding the vanilla animal tab, e.g. ~~~Better Pawn Control~~~.
-&lt;b&gt;Voult, the awesome person behind Better Pawn Control is working on compatibility, the two mods should now work together fine&lt;/b&gt;.
-
-&lt;size=28&gt;Features&lt;/size&gt;
-
-- Gender and lifestage icons on the animals tab. Easily keep track of your chickenfarm!
-- Butchery designation right from the animals tab.
-- Sort by name, gender, lifestage/age, and bodysize (meat).
-- Filter by race, and a variety of attributes.
-- Rename (named) pets. Don't like the name Buttercup for your Warg? Change it!
-- Mass assign masters, or assign all to bonded masters.</description>
-    <url>https://github.com/fluffy-mods/AnimalTab</url>
-    <supportedVersions>
-        <li>1.5</li>
-    </supportedVersions>
+Code and documentation: MIT. Original assets: generally CC BY-SA 4.0, with third-party exceptions preserved in CREDITS.md and LICENSE. Original artwork is unchanged. This unofficial fork is not endorsed by Fluffy.</description>
 </ModMetaData>

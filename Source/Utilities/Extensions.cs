@@ -73,7 +73,7 @@ namespace AnimalTab {
                 return false;
             }
 
-            return (bool) _milkableCompActiveMethodInfo.Invoke(comp, null);
+            return ReadGatherableActive(_milkableCompActiveMethodInfo, comp, pawn, "milk");
         }
 
         private static bool ShearableCompActive(Pawn pawn) {
@@ -93,7 +93,15 @@ namespace AnimalTab {
                 return false;
             }
 
-            return (bool) _shearableCompActiveMethodInfo.Invoke(comp, null);
+            return ReadGatherableActive(_shearableCompActiveMethodInfo, comp, pawn, "wool");
+        }
+
+        private static bool ReadGatherableActive(MethodInfo getter, object comp, Pawn pawn, string resource) {
+            return GatherableStatus.Read(getter, comp, Environment.TickCount, exception =>
+                Log.Warning($"[Animal Tab] Cannot read {resource} status for animal ID {pawn.thingIDNumber} " +
+                    $"({pawn.def?.defName ?? "unknown race"}). Leaving its {resource} cell blank and retrying " +
+                    "after one second. This warning is shown once per component for this game session. " +
+                    exception));
         }
 
         public static bool Pregnant(this Pawn pawn) {

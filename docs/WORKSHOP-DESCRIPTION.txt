@@ -1,0 +1,22 @@
+[h1]Animal Tab — Unofficial Update[/h1]
+Unofficial maintenance fork of Animal Tab by Fluffy, maintained by Noslon (Warnu on GitHub). Credit for the original mod belongs to Fluffy and contributors.
+Release version: 1.7.0, for RimWorld 1.7.
+
+[h2]Changes[/h2]
+Preserves the enhanced animal list, filtering, sorting, and handler controls. Prevents a null-reference failure in a milk/wool status check from breaking the entire table. An affected cell remains blank; the mod logs the animal ID once and retries after one second.
+This is defensive table error handling, not a claimed repair of the underlying invalid map state. Production rules are unchanged.
+
+[h2]Compatibility[/h2]
+Experimental RimWorld 1.7 release candidate. Requires Harmony.
+Use this INSTEAD OF the original Animal Tab; never enable both.
+Add-ons requiring Fluffy.AnimalTab may need updates for warnu.animaltab.unofficial.
+The code change was tested locally on 1.7.4981 rev136. The standalone package must be tested before making this listing public.
+
+[h2]Credits and source[/h2]
+Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=712141500
+Original source: https://github.com/fluffy-mods/AnimalTab
+Fork source and issues: https://github.com/Warnu/AnimalTab
+Code/documentation: MIT. Original content: generally CC BY-SA 4.0, with exceptions in CREDITS.md and LICENSE.
+Upstream credits SimpleIcon (CC0), Dave Gandy/FontAwesome (BY), macrovector preview artwork (BY-NC), and Freepik icons (BY-NC). Original artwork is unchanged. This free unofficial fork is not endorsed by Fluffy.
+MIT: https://opensource.org/license/mit
+CC BY-SA: https://creativecommons.org/licenses/by-sa/4.0/

@@ -20,7 +20,7 @@ namespace AnimalTab {
                     .ToList();
 
         private static bool IsSelected(Pawn pawn) {
-            bool worldRendered = WorldRendererUtility.WorldRenderedNow;
+            bool worldRendered = WorldRendererUtility.WorldRendered;
 
             return
                 // selected on colony map
