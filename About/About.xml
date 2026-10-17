@@ -2,7 +2,7 @@
 <ModMetaData>
   <name>Animal Tab — Unofficial Update</name>
   <author>Fluffy (original); Noslon (unofficial maintenance)</author>
-  <packageId>warnu.animaltab.unofficial</packageId>
+  <packageId>Fluffy.AnimalTab</packageId>
   <modVersion>1.7.0</modVersion>
   <supportedVersions><li>1.7</li></supportedVersions>
   <modDependencies>
@@ -14,7 +14,6 @@
     </li>
   </modDependencies>
   <loadAfter><li>brrainz.harmony</li></loadAfter>
-  <incompatibleWith><li>fluffy.animaltab</li></incompatibleWith>
   <url>https://github.com/Warnu/AnimalTab</url>
   <description>Unofficial maintenance fork of Animal Tab by Fluffy, maintained by Noslon (Warnu on GitHub).
 
@@ -22,9 +21,9 @@ Enhanced animal information, sorting, filtering, and handler controls.
 
 This update prevents null-reference failures in milk/wool status checks from interrupting the entire table. An affected cell stays blank, one diagnostic warning identifies the animal, and the status is retried after one second. Normal production rules are unchanged.
 
-Enable this fork INSTEAD OF the original Animal Tab. Never enable both. Requires Harmony.
+Unsubscribe from the original Animal Tab and remove other local copies before installing this fork. Both versions use the same package ID; keep only one installed. Requires Harmony.
 
-Experimental RimWorld 1.7 release candidate. The code change was tested locally on 1.7.4981 rev136; the standalone package and third-party integrations still need in-game testing. This does not claim to repair the underlying invalid map state. Add-ons that explicitly require Fluffy.AnimalTab may need compatibility updates for this fork's distinct package ID.
+Experimental RimWorld 1.7 release candidate. The code change was tested locally on 1.7.4981 rev136; the standalone package and third-party integrations still need in-game testing. This does not claim to repair the underlying invalid map state. The original Fluffy.AnimalTab package ID is preserved for dependency checks and load-order rules; this does not guarantee compatibility with every add-on.
 
 Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=712141500
 Original source: https://github.com/fluffy-mods/AnimalTab

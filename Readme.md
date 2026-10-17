@@ -6,7 +6,7 @@ Unofficial maintenance fork of [Animal Tab by Fluffy](https://github.com/fluffy-
 
 Fork release version: **1.7.0**. Supported game version: **RimWorld 1.7**. The internal assembly identity remains `AnimalTab, Version=8.0.0.0` to preserve the original binary identity; it is separate from the fork's release version.
 
-**Experimental release candidate for RimWorld 1.7.** The code change was tested locally on 1.7.4981 rev136: the Animals tab scrolled normally and displayed milk percentages. That test replaced the original mod's DLL. The new standalone package ID and third-party integrations still require an in-game test before public Workshop release.
+**Experimental release candidate for RimWorld 1.7.** The code change was tested locally on 1.7.4981 rev136: the Animals tab scrolled normally and displayed milk percentages. That test replaced the original mod's DLL. The standalone distribution and third-party integrations still require an in-game test before public Workshop release.
 
 The build targets .NET Framework 4.7.2 using RimWorld 1.6.4871 reference assemblies. Only 1.7 is declared in the metadata; this is not a blanket compatibility claim. Development of this release is on branch `1.7`, based on the original mod's `1.5` branch.
 
@@ -17,11 +17,11 @@ This is table error handling, **not a demonstrated repair of the underlying inva
 ## Install
 
 1. Install the current [Harmony mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077) for your game version.
-2. Extract the release ZIP's `AnimalTab-Unofficial` folder into RimWorld's local `Mods` directory.
-3. Disable original **Animal Tab**, and enable this fork after Harmony. Never enable both.
+2. Unsubscribe from the original **Animal Tab** and remove other local copies before extracting the release ZIP's `AnimalTab-Unofficial` folder into RimWorld's local `Mods` directory.
+3. Enable this fork after Harmony. Both versions use the same package ID; keep only one installed.
 4. Restart and test on a copy of your save.
 
-Package ID: `warnu.animaltab.unofficial`. A save may report the changed mod list. Add-ons that check or require `Fluffy.AnimalTab` may need a compatibility update; unchanged C# class names do not make package-ID checks succeed. Broad add-on compatibility has not been established.
+Package ID: `Fluffy.AnimalTab`, preserved from the original for dependency checks and load-order rules. This preserves recognition by package ID, but does not guarantee compatibility with every add-on. The fork uses its own Steam Workshop item ID, separate from the package ID. Broad add-on compatibility has not been established.
 
 ## Build and test
 

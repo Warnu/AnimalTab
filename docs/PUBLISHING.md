@@ -8,13 +8,13 @@ Push the source, tests, build scripts, metadata, and licenses. Keep generated As
 
 ## Test the standalone package
 
-The first successful test replaced a DLL under the original package ID. This fork has a new ID and must be tested separately:
+The first successful test replaced a DLL under the original package ID. This fork preserves that ID, Fluffy.AnimalTab, but the complete standalone distribution must still be tested:
 1. Preserve a copy of your save and working mod list.
-2. Put the staged AnimalTab-Unofficial folder in RimWorld's local Mods folder.
-3. Enable Harmony and this fork, disable original Animal Tab, and restart.
+2. Unsubscribe from the original Animal Tab and remove other local copies, then put the staged AnimalTab-Unofficial folder in RimWorld's local Mods folder. Keep only one installation with this package ID.
+3. Enable Harmony and this fork, and restart.
 4. Test cows, milk/wool values, scrolling, sorting, filters, handler controls, and animal-selection shortcuts on the copied save.
 5. Inspect a fresh log. A log that has reached its message cap cannot rule out later errors.
-6. Check add-ons separately. Dependencies and checks for Fluffy.AnimalTab do not automatically recognize this ID. Better Animal Info and other integrations are not yet certified for this standalone package.
+6. Check add-ons separately. Dependencies and checks for Fluffy.AnimalTab retain the original package identity, but Better Animal Info and other integrations are not yet certified for this standalone package.
 
 ## Steam
 

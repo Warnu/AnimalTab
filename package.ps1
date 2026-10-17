@@ -17,7 +17,7 @@ foreach ($file in @('LICENSE', 'CREDITS.md', 'CHANGELOG.md', 'Readme.md')) {
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot $file) -Destination $stage
 }
 [xml]$metadata = Get-Content -LiteralPath (Join-Path $stage 'About/About.xml') -Raw
-if ($metadata.ModMetaData.packageId -ne 'warnu.animaltab.unofficial') { throw 'Unexpected release package ID.' }
+if ($metadata.ModMetaData.packageId -cne 'Fluffy.AnimalTab') { throw 'Unexpected release package ID.' }
 if (Test-Path -LiteralPath (Join-Path $stage 'About/PublishedFileId.txt')) { throw 'An upstream Workshop ID must not be packaged.' }
 $dlls = @(Get-ChildItem -LiteralPath (Join-Path $stage 'Assemblies') -Filter '*.dll')
 if ($dlls.Count -ne 1 -or $dlls[0].Name -ne 'AnimalTab.dll') { throw 'Unexpected runtime DLLs in package.' }

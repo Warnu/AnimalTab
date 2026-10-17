@@ -9,7 +9,7 @@
 - Add a startup marker for the patched build.
 - Preserve assembly identity AnimalTab 8.0.0.0; start this fork's release numbering at 1.7.0.
 - Add portable build, regression tests, Windows CI, and release packaging.
-- Set distinct package ID warnu.animaltab.unofficial, require Harmony, and declare the original mod incompatible.
+- Preserve the original Fluffy.AnimalTab package ID for dependency checks and load-order rules, require Harmony, and document replacing the original installation.
 - Retain licenses/credits and remove upstream publishing IDs and update metadata.
 
 Limitation: the invalid map/holder state itself has not been repaired. A game update occurred between the failing and successful local tests. The standalone fork still requires an in-game smoke test.
