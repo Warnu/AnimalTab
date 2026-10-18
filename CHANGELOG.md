@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Restore animal icons beside names in the Animals tab using RimWorld's built-in label-column rendering.
+
 ## 1.7.0 — Unofficial release candidate, 2026-10-16
 
 - Contain reflected NullReferenceException failures in milk/wool Active getters so they do not abort the table.
